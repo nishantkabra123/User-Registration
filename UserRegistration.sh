@@ -1,10 +1,10 @@
 #!/bin/bash -x
 shopt -s extglob
-read -p "Enter email : " email
+read -p "Enter mobile No : " mobileNo
 
-pat='^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+[.]{1}[a-z]{2,3}([.][a-z]{2})*$'
+pat='^[0-9]{2}[ ][0-9]{10}$'
 
-if [[ $email =~ $pat ]]
+if [[ $mobileNo =~ $pat ]]
 then
     echo "Yes"
 else
