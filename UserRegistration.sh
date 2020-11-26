@@ -1,6 +1,7 @@
 #!/bin/bash 
 shopt -s extglob
 
+echo "User Registration"
 printf " 1.FirstName \n 2.LastName \n 3.Email \n 4.Mobile No \n 5.Password with min 8 chars \n 6.Password with atleast 1 upper case \n 7.Password with atleast 1 upper case and number \n 8.Password with atleast 1 upper case and number and 1 special character \n"
 read -p "enter number : " choice 
 read -p "Enter test input : " word
