@@ -1,10 +1,10 @@
 #!/bin/bash -x
 shopt -s extglob
-read -p "Enter Last Name : " name
+read -p "Enter email : " email
 
-pat='^[A-Z]{1}[a-z]{2,}$'
+pat='^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+[.]{1}[a-z]{2,3}([.][a-z]{2})*$'
 
-if [[ $name =~ $pat ]]
+if [[ $email =~ $pat ]]
 then
     echo "Yes"
 else
