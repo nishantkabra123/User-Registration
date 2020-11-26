@@ -1,10 +1,10 @@
 #!/bin/bash -x
 shopt -s extglob
-read -p "Enter mobile No : " mobileNo
+read -p "Enter password : " password
 
-pat='^[0-9]{2}[ ][0-9]{10}$'
+pat='^.{8,}$'
 
-if [[ $mobileNo =~ $pat ]]
+if [[ $password =~ $pat ]]
 then
     echo "Yes"
 else
