@@ -8,7 +8,7 @@ read -p "Enter test input : " word
 
 firstNameRegex='^[A-Z]{1}[a-z]{2,}$'
 LastNameRegex='^[A-Z]{1}[a-z]{2,}$'
-emailRegex='^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+[.]{1}[a-z]{2,3}([.][a-z]{2})*$'
+emailRegex='^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+[.]{1}[a-z]{2,3}([.][a-z]{2})?$'
 mobileRegex='^[0-9]{2}[ ][0-9]{10}$'
 passwordRegex1='^.{8,}$' #password with minimum 8 characters
 passwordRegex2='^(((.)*[A-Z]+)|([A-Z]+(.)*))+$' #password with atleast 1 uppercase
