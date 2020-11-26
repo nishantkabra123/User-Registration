@@ -1,14 +1,60 @@
-#!/bin/bash -x
+#!/bin/bash 
 shopt -s extglob
-read -p "Enter password : " password
 
-pat='^.{8,}$'
+printf " 1.FirstName \n 2.LastName \n 3.Email \n 4.Mobile No \n 5.Password with min 8 chars \n 6.Password with atleast 1 upper case \n"
+read -p "enter number : " choice 
+read -p "Enter test input : " word
 
-if [[ $password =~ $pat ]]
+firstNameRegex='^[A-Z]{1}[a-z]{2,}$'
+LastNameRegex='^[A-Z]{1}[a-z]{2,}$'
+emailRegex='^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+[.]{1}[a-z]{2,3}([.][a-z]{2})*$'
+mobileRegex='^[0-9]{2}[ ][0-9]{10}$'
+passwordRegex1='^.{8,}$'
+passwordRegex2='^(((.)*[A-Z]+)|([A-Z]+(.)*))*$'
+
+function testPattern(){
+
+if [[ $1 =~ $2 ]]
 then
     echo "Yes"
 else
     echo "No"
 fi
+
+}
+
+function passwordUpperCase(){
+regex=$1    
+password=$2
+passwordLength=${#password}
+if [[ $regex =~ $password && $passwordLength -ge 8 ]]  #if password matches atleast 1 UpperCase and length>=8
+then
+    echo "Yes"
+else
+    echo "No"
+fi
+}
+
+if [ $choice -eq 1 ]
+then
+    testPattern $firstNameRegex $word
+elif [ $choice -eq 2 ]
+then
+    testPattern $lastNameRegex $word
+elif [ $choice -eq 3 ]
+then
+    testPattern $emailRegex $word
+elif [ $choice -eq 4 ]
+then
+    testPattern $mobileRegex $word
+elif [ $choice -eq 5 ]
+then
+    testPattern $passwordRegex1 $word
+elif [ $choice -eq 6 ]
+then
+    passwordUpperCase $passwordRegex2 $word
+fi
+
+
 
 
